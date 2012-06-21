@@ -1,0 +1,155 @@
+<html>
+	<head>
+	<script type="text/javascript" charset="utf-8">
+		function verifica(){
+			var formulario = document.frm;
+				var cpf = document.frm.cpf.value 
+				if (!(verificaCpf(cpf)))
+				{
+					alert("CPF INVALIDO");
+					return false;
+				}
+			if(document.frm.nome.value=="" || document.frm.nome.length <10)
+			{
+				alert("Preencha corretamente o nome");
+				document.frm.nome.focus();
+				return false;
+			}
+				if(document.frm.endereco.value==""){
+					alert("Favor preencher o campo endereço")
+					document.frm.endereco.focus();
+					return false;
+				}
+					if(document.frm.numero.value=="" && isNaN){
+						alert("Favor preencher o campo numero - Somente Numeros")
+						document.frm.endereco.focus();
+						return false;
+					}
+						if(document.frm.bairro.value==""){
+							alert("Favor preencher o campo bairro")
+							document.frm.bairro.focus();
+							return false;
+						}
+			if( document.frm.email.value=="" || document.frm.email.value.indexOf('@')==-1 || document.frm.email.value.indexOf('.')==-1 ) 
+			{ 
+			alert( "Preencha campo E-MAIL corretamente!" ); 
+			document.frm.email.focus(); 
+			return false; 
+			}
+			
+			if(document.frm.tel.value=="" || isNaN(document.frm.tel.value))
+			{
+				alert("Favor Preencher o campo telefone - Somente Numeros")
+				document.frm.tel.focus();
+				return false;
+			}
+		
+			document.write("<body bgcolor='lightblue' align='center'><b>Nome:</b> "+ document.frm.nome.value + "<br /><br /> <b>Endereço:</b> " + document.frm.endereco.value + "<br /><br /><b> Nº:</b> " + document.frm.numero.value + "<br /><br /> <b>Bairro:</b> " + document.frm.bairro.value + "<br /><br /> <b>Email:</b> " + document.frm.email.value + "<br /><br /> <b>Telefone:</b> " + document.frm.tel.value + "<br / ><br /> <b>CPF:</b> " + document.frm.cpf.value + "<br /><br /> <b>Observações:</b> " + document.frm.area.value + "<br /><br /><a href='trabalhoavd2.html'>Voltar </a>")
+			
+			return false;
+			
+	}
+	  function verificaCpf(cpf) 
+			{
+				if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" 
+				|| cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" 
+				|| cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" 
+				|| cpf == "88888888888" || cpf == "99999999999")
+					return false;
+				add = 0;
+				for (i=0; i < 9; i ++)
+				{
+					add += parseInt(cpf.charAt(i)) * (10 - i);
+				}
+				rev = 11 - (add % 11);
+				
+				if (rev == 10 || rev == 11)
+					{
+						rev = 0;
+					}
+
+				if (rev != parseInt(cpf.charAt(9)))
+					{
+						return false;
+					}
+				add = 0;
+
+				for (i = 0; i < 10; i ++)
+					{
+						add += parseInt(cpf.charAt(i)) * (11 - i);
+					}
+				rev = 11 - (add % 11);
+				if (rev == 10 || rev == 11)
+					{
+						rev = 0;
+					}
+				if (rev != parseInt(cpf.charAt(10)))
+					return false;
+				return true;
+			}
+	
+	
+
+	
+	function estado(valor){
+		var cidade = document.getElementById('cidade');
+		if(valor == "RJ")
+		{
+			cidade.innerHTML = "<option>Volta Redonda</option><option>Barra Mansa</option><option>Barra do Pirai</option>"
+		}
+		else
+			if(valor == "SP")
+			{
+				cidade.innerHTML = "<option>Taubate</option><option>Aparecida</option><option>S.J dos Campos</option>"
+			}
+		else
+			if(valor == "MG")
+			{
+				cidade.innerHTML ="<option>Belo Horizonte</option><option>Juiz de Fora</option><option>Uberaba</option>"
+			}
+	}
+
+
+
+
+	</script>
+	
+		<title>Cadastro de Alunos - Victor Hugo</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+<body bgcolor="lightblue" align="center">
+	<form name="frm" id="frm" method="post" onSubmit="return verifica();">
+		<b>Nome:</b> <input type="text" name="nome" size="30"><br><br />
+		<b>CPF:</b> <input type="text" name="cpf" size="11"><br /><br />
+	
+		<b>Endereço:</b> <input type="text" name="endereco" size="40"><br><br />
+		<b>Nº:</b><input type="text" name="numero" size="10"><br /><br />
+		<b>Bairro:</b> <input type="text" name="bairro" size="20"><br /><br />
+	<b>	Email:</b> <input type="text" name="email" size="30"><br><br />
+		<b>Telefone:</b> <input type="text" name="tel" size="20" maxlength="10" ><br /><br />
+		<b>UF</b> <select name="UF" onChange="estado(this.value)">
+			<option name=""></option>
+			<option name="RJ" id="RJ" value="RJ">RJ</option>
+			<option name="SP" id="SP" value="SP">SP</option>
+			<option name="MG" id="MG" value="MG">MG</option>
+			<option name="ES">ES</option>
+			<option name="AM">AM</option>
+			<option name="SC">SC</option>
+			<option name="RS">RS</option>
+		</select><br><br />
+		<b>Cidade:</b>
+		<select id="cidade">
+			<option>Escolha um estado</option>
+		</select><br /><br />
+		
+		
+			<b>Sexo:</b> <input type="radio" name="sexo" value="M" checked="yes">Masculino &nbsp; <input type="radio" name="sexo" value="F">Feminino<br><br />
+	<b>	Idioma:</b> <input type="checkbox" name="idioma" value="pt" checked="yes">Português</input>
+		&nbsp; <input type="checkbox" name="idioma" value="us">Inglês</input> &nbsp; <input type="checkbox" name="idioma" value="fr" >Francês</input><input type="checkbox" name="idioma" value="ch">Mandarim</input> <input type="checkbox" name="idioma" value="espanhol">Espanhol</input><br /><br />
+		<b>Escolariedade:</b> <input type="checkbox" name="escola" value="ef" checked="yes">Ensino Fundamental &nbsp; <input type="checkbox" name="escola" value="em">Ensino Médio &nbsp; <input type="checkbox" name="escola" value="es">Ensino Superior &nbsp; <br /><br /><br />
+		<b>Observações:</b>
+		<br /><textarea name="area" rows="8" cols="40"></textarea><br /><br />
+		<input type="submit" value="Enviar" name="Enviar"> &nbsp; &nbsp; <input type="reset" value="Resetar" name="Resetar">
+	</form>
+</body>
+</html>

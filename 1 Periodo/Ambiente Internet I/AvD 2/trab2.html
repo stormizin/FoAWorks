@@ -1,0 +1,27 @@
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+	<script type="text/javascript" charset="utf-8">
+		function montarTabela(){
+			var tabela = "";
+			for(i = 0; i < frmTabela.txtLinhas.value; i++){
+				tabela += "<tr>";
+				for(p = 0; p < frmTabela.txtColunas.value; p++){
+					tabela += "<td>" + p + "</td>";
+				}
+				tabela += "</tr>";
+			}
+			document.getElementById("tabela").innerHTML = tabela;
+		}
+	</script>
+</head>
+<body>
+	<form action="" name="frmTabela">
+		Número de Linhas: <input type="text" name="txtLinhas" /><br />
+		Número de Colunas: <input type="text" name="txtColunas" /><br />
+		<input type="button" onclick="montarTabela();" value="ok">
+	</form>
+	<table id="tabela" class="texte" border="1"></table>
+</body>
+</html>
