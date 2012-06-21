@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+	<TITLE> Sequencia de Fibonacci </TITLE>
+	<script type="text/javascript">
+		var ant = 0
+		  , ult = 1
+		  , num = prompt("Numero entre 2 e 200:", "2");
+
+		if ((num < 2) || (num > 200)){
+			alert("Número não é válido");
+		}else{
+			for (i = 1; i <= num; i++){
+				document.write("O elemento " + i + " =<B>" + ult + "</B><BR>");
+				atual = ult + ant;
+				ant = ult;
+				ult = atual;
+			}
+		}
+	</SCRIPT>
+</HEAD>
+<BODY>
+<H2> Eis a Sequencia de Fibonacci </H2>
+<HR>
+
+</BODY>
+</HEAD>
