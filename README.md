@@ -10,5 +10,7 @@ Basta você dar um 'Fork', depois clonar no seu computador, editar o que você q
 ##Download :
 
 Se você quiser apenas baixar, click em "ZIP".
+
 Vida longa ao Open Source
+
 Beijos :*
