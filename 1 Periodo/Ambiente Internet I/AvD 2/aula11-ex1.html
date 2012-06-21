@@ -1,0 +1,38 @@
+<HTML> 
+	
+		<TITLE>Aula 11 - Exercício 01</TITLE> 
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+	
+	
+	<BODY> 
+	<H1 align="center" >Aula 11 - Exercício 01 </H1>
+	<H1 align="center" >Primeiro Exemplo de JavaScript</H1> 
+		<H2>Usando os tipos de dados para calcular potências de 2.</H2> 	
+			<script language="Javascript"> 
+				for(i=1,pot=2; i<=10; i++,pot*=2){
+				document.write("2 elevado a "+ i + " = "+ pot); 
+				document.write("<br>"); 
+				}
+				//FOR único
+				document.write("<h2>FOR Único</h2>");
+				pot=2;
+				for(j=1;j<=10;j++){
+					document.write("2 elevado a "+ j + " = "+ pot); 
+					document.write("<br>"); 
+					pot*=2;
+				}
+				
+				//FOR com comandos que permitem mudar o fluxo do programa
+				document.write("<h2>FOR com comandos que permitem mudar o fluxo do programa.</h2>");
+				document.write("<a href='aula11-ex1-1.html' target='_self'>FOR com BREAK;</a>"+"<font color='white'>-------</font>"+"<a href='aula11-ex1-2.html' target='_self'>FOR com CONTINUE;</a>")
+				//Fatoriais
+				document.write("<h2>Fatoriais 1 a 10</h2>");
+				for(a=1,fat=1;a<=10;a++,fat*=a){
+				document.write("<b>"+a+"!= </b>"+fat+"<br>");
+				}
+
+				
+			</script> 
+	</BODY> 
+</HTML>
