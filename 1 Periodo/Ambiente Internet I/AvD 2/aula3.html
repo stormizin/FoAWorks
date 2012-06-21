@@ -1,0 +1,24 @@
+<html>
+<head>	
+</head>
+
+<body>
+	
+<script type="text/javascript">
+document.write("<table border='1'>");
+function preencher()
+	{
+		document.write("<tr><td>" + frmCadastro.txtnome.value +" </td>");
+		document.write("<td>" + frmCadastro.txtemail.value + "</td>");
+	}
+		document.write("</table>");
+		document.write("<form name='frmCadastro'>");
+		document.write("Nome: <input type='text' name='txtnome' id='txtnome'> <br>");
+		document.write("Email: <input type='text' name='txtemail' id='txtemail'> <br>");
+		document.write("<input type='button' value='Ok' onclick='preencher();'>");
+		document.write("</form>");
+		
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+
+
+<html>
+	<head>
+		<title>Aula 09 - Exercício 03</title>
+		<meta http-equiv="content-type" content="text/html;charset:UTF-8" />
+		<style type="text/css">
+			<!--
+				#tt3{
+					color:blue;
+					font-size:21px;
+				}
+			-->
+		</style>
+		<script language="javascript">
+			// :D
+		</script>
+	</head>
+	
+	<body>
+		<h1 align="center">Aula 09 - Exercício 02</h1>
+		
+		<H2>No exercício 2, ao final do arquivo, antes da tag <font color="blue">&lt;/body&gt;</font>  inclua as linhas de 
+formulário que seguem: <br>
+		
+		<font color="blue">
+		<dl>
+			<dd>&lt;form&gt;</dd>
+			<dd>&lt;input <font color="red">type=</font>"button" <font color="red">value=</font>"Aperte aqui" <font color="red">onClick=</font>"alert('clicaram-me!')"&gt; </dd>
+			<dd>&lt;/form&gt;</dd>
+		</dl>
+		</font>
+		</H2> 
+		
+		<p align="justify"><b>Veja o resultado e depois de reler a seção 3 desta aula responda: qual a forma de 
+incluir JavaScript usada agora?</b></p>
+		<p><i> R: A forma de incluir JavaScript usada agora foi através da associação a um evento. </i></p>
+		
+		<hr>
+		<script>
+		 var msg = " elevado a ";
+			
+			for(i=1;i<=20;i++){
+				document.write("<h3 id='tt3'>Potência de "+i+"</h3>");
+				for(exp=1,pot=i;exp<=10;exp++,pot*=i){	
+					document.write("<h3>"+i+ msg + exp + " = " + pot +"</h3>"); 
+				}
+				document.write("<br>");
+			}
+		</script>
+		
+		<form> 
+			<input type="button" value="Aperte aqui" onClick="alert('clicaram-me!')"> 
+		</form>
+			
+	</body>
+
+</html>

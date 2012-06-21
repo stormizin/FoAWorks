@@ -1,0 +1,16 @@
+<html>
+	<body>
+	<H1 align="center" >Aula 11 - Exercício 01-1 </H1>
+		<script language="JavaScript">
+			document.write("<h2>FOR com BREAK;</h2>");
+			for(i=1,pot=2; i<=10; i++,pot*=2){
+					document.write("2 elevado a "+ i + " = "+ pot); 
+					document.write("<br>"); 
+					
+					if (!confirm("2 elevado a "+i+" = " + pot + "?\n\n Se não clique em Cancelar.")){
+						break;
+					}
+				}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<script type="text/javascript" charset="utf-8">
+	var tamanho = prompt("Insira o número de linhas da tabela");
+	if(isNaN(tamanho)){
+		alert("Não é possível calcular");
+	}else{
+		tabela = "<table border='1'>";
+		for(i = 0; i < parseInt(tamanho); i++){
+			tabela += "<tr><td>  </td></tr>";
+		}
+		tabela += "</table>"
+		document.write(tabela);
+	}
+</script>
