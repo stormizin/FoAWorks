@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">  
+  
+    <h:head>  
+  
+    </h:head>  
+      
+    <h:body>  
+        
+        <!--p:growl id="messages" showDetail="true" sticky="true" /-->  
+  
+        <p:idleMonitor timeout="5000" onactive="window.location = 'faces/login.xhtml'"> 
+            
+        </p:idleMonitor> 
+        
+        Seja Bem Vindo #{beanLogin.usuarioLogado.nome}
+        
+        <hr />
+        
+        <h:form id="form" prependId="false">
+            
+            <h:outputText value="#{beanContas.mensagem}" />
+            
+            <h:panelGrid columns="2" cellpadding="5">  
+                <h:outputLabel for="data_vencimento" value="Data de Vencimento:" style="font-weight:bold"/>  
+
+                <p:calendar id="data_vencimento" value="#{beanContas.conta.dataVencimento}" /> 
+                
+                <h:outputLabel for="valor" value="Valor: R$" style="font-weight:bold"/>  
+
+                <p:inputText id="valor" value="#{beanContas.conta.valor}" /> 
+
+                <p:commandButton value="Cadastrar" actionListener="#{beanContas.cadastrar()}" update="form"/> 
+
+                
+            </h:panelGrid>  
+            
+            <h:panelGrid id="panel" columns="1" cellpadding="0">  
+                <p:dataTable var="conta" value="#{beanContas.contas}" rowKey="#{conta.id}"  
+                     selection="#{beanContas.contaSelecionada}" selectionMode="single">  
+
+                    <p:column headerText="Código">  
+                        <h:outputText value="#{conta.id}" />  
+                    </p:column>  
+
+                    <p:column headerText="Data de Vencimento">  
+                        <h:outputText value="#{conta.dataVencimento}" />  
+                    </p:column>  
+
+                    <p:column headerText="Valor">  
+                        <h:outputText value="#{conta.valor}" />  
+                    </p:column>  
+
+                    <f:facet name="footer">  
+                        <p:commandButton id="excluirButton" value="Excluir"  
+                                 oncomplete="excluirDialog.show()" />  
+                    </f:facet> 
+
+                </p:dataTable> 
+
+                <p:dialog id="dialog" header="Confirmar Exclusão" widgetVar="excluirDialog" resizable="false"  
+                    showEffect="fade" hideEffect="explode">  
+
+                    Tem certeza que deseja excluir? <br />
+
+                    <p:commandButton value="Sim" actionListener="#{beanContas.excluir()}" update="form"/> 
+
+                    <p:commandButton value="Não" onclick="excluirDialog.hide()" /> 
+
+                </p:dialog>  
+              
+            </h:panelGrid>
+            
+        </h:form>  
+          
+    </h:body>  
+</html>

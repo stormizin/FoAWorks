@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">  
+  
+    <h:head>  
+  
+    </h:head>  
+      
+    <h:body>  
+        
+        <h1>Faça Login</h1>
+        
+        
+        
+        <h:form id="form" prependId="false">  
+                             
+            <h:outputText value="#{beanLogin.mensagem}" />
+            
+            <h:panelGrid columns="2" cellpadding="5">  
+                <h:outputLabel for="nome" value="Nome:" style="font-weight:bold"/>  
+
+                <p:inputText id="nome" value="#{beanLogin.usuario.nome}" /> 
+                
+                <h:outputLabel for="login" value="Login:" style="font-weight:bold"/>  
+
+                <p:inputText id="login" value="#{beanLogin.usuario.login}" /> 
+                
+                <h:outputLabel for="senha" value="Senha:" style="font-weight:bold"/>  
+
+                <p:inputText id="senha" value="#{beanLogin.usuario.senha}" type="password"/> 
+
+                <p:commandButton value="Cadastrar" actionListener="#{beanLogin.cadastrar()}" update="form"/> 
+                
+                <p:commandButton value="Login" actionListener="#{beanLogin.login()}" update="form"/> 
+
+                
+            </h:panelGrid>  
+
+        </h:form>  
+          
+    </h:body>  
+</html>
